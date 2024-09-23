@@ -5,16 +5,27 @@
 
 ### Paper1:
 
-**Title**: [Extracting Training Data from Diffusion Models](https://www.sciencedirect.com/science/article/abs/pii/S0045790622006851) <br>
+**Title**: [Extracting Training Data from Diffusion Models](https://arxiv.org/pdf/2301.13188) <br>
 **Journal/Conference**: USENIX Security 23 <br>
 **Author**: Nicholas Carlini, Google; Jamie Hayes, DeepMind; Milad Nasr and Matthew Jagielski, Google; Vikash Sehwag, Princeton University; Florian Tramèr, ETH Zurich; Borja Balle, DeepMind; Daphne Ippolito, Google; Eric Wallace, UC Berkeley. <br>
 **Model**: Diffusion Models <br>
-**Dataset**: / <br>
-**Method**: / <br>
-**Task + evaluation indicators**: 任务是开发和验证一种从扩散模型中提取训练数据的方法。评价指标可能包括提取数据的准确性、完整性和实用性。
+**Dataset**: LAION, CIFAR-10. LAION是一个大规模的数据集，用于训练扩散模型；CIFAR-10是一个常用的小规模图像分类数据集，包含10个类别，共60000张32x32的彩色图像。<br>
+**Method**: 研究者们展示了扩散模型能够记住训练数据中的个别图像，并在生成时重新发出这些图像。他们提出了一种生成和过滤流程，从最先进的模型中提取了数千个训练样本。他们还训练了数百个不同设置的扩散模型，分析了不同的建模和数据决策如何影响隐私。<br>
+**Task + evaluation indicators**: 任务是从预训练的大规模扩散模型中提取训练数据，以评估这些模型对训练数据的记忆程度。评价指标可能包括提取数据的准确性、完整性和实用性。
 
 
 ### Paper2:
+
+**Title**: [DeepFakes: a New Threat to Face Recognition? Assessment and Detection](https://arxiv.org/pdf/1812.08685) <br>
+**Journal/Conference**: arXiv:1812.08685 <br>
+**Author**: Pavel Korshunov, Sebastien Marcel. <br>
+**Model**: GANs <br>
+**Dataset**: VidTIMIT. 该数据库包含43个受试者的10个视频，拍摄于受控环境中，受试者面对摄像机并朗读预定短语。<br>
+**Method**: 论文生成了低质量（LQ，64x64）和高质量（HQ，128x128）的Deepfake视频，使用GAN进行面部交换。评估了基于VGG和Facenet的面部识别系统对Deepfake视频的脆弱性，并测试了多种Deepfake检测方法，包括基于音频-视觉不一致性和图像质量度量的检测方法。<br>
+**Task + evaluation indicators**: 任务是评估Deepfake视频对现有面部识别系统的威胁，并探索有效的检测方法。评价指标使用假接受率（FAR）、假拒绝率（FRR）和等错误率（EER）来评估面部识别系统的性能。Deepfake检测系统的性能通过EER和FRR（在FAR为10%时）进行评估。实验结果显示，VGG和Facenet系统在高质量Deepfake视频上的FAR分别为85.62%和95.00%，表明它们无法有效区分原始视频和Deepfake视频。
+
+
+### Paper3:
 
 **Title**: [A Reproducible Extraction of Training Images from Diffusion Models](https://arxiv.org/abs/2305.08694) <br>
 **Journal/Conference**:  <br>
@@ -25,7 +36,7 @@
 **Task + evaluation indicators**: 任务是研究如何从流行的扩散模型中提取训练图像，特别是那些在模型训练集中被复制的图像。评价指标通过构建真实样本的ground truth，并计算模型生成的图像与这些真实样本之间的匹配度（例如，使用均方误差MSE）来评估提取攻击的精度。此外，还通过与先前方法的比较来评估新方法的效率和准确性。
 
 
-### Paper3:
+### Paper4:
 
 **Title**: [Diffusion Art or Digital Forgery? Investigating Data Replication in Diffusion Models](https://arxiv.org/abs/2212.03860) <br>
 **Journal/Conference**: CVPR 2023 <br>
@@ -36,7 +47,7 @@
 **Task + evaluation indicators**: 任务是检测扩散模型生成的图像是否复制了训练集中的内容，以及复制的程度。评价指标使用mean-Average Precision (mAP)来衡量不同模型在复制检测任务上的性能。此外，通过定性和定量分析来评估模型在不同数据集上生成图像的复制行为。
 
 
-### Paper4:
+### Paper5:
 
 **Title**: [Reducing training sample memorization in gans by training with memorization rejection](https://arxiv.org/pdf/2210.12231) <br>
 **Journal/Conference**:  <br>
@@ -47,7 +58,7 @@
 **Task + evaluation indicators**: 任务是研究如何减少GAN在训练过程中对训练样本的记忆现象，以提高生成样本的多样性和质量。评价指标使用Fréchet Inception Distance (FID) 来评估生成质量，使用非参数测试分数（CT值）来评估记忆的严重程度。通过改变拒绝阈值（τ）来平衡生成质量和记忆减少。
 
 
-### Paper5:
+### Paper6:
 
 **Title**: [Differentially private diffusion models](https://arxiv.org/pdf/2210.09929) <br>
 **Journal/Conference**:  <br>
@@ -58,7 +69,7 @@
 **Task + evaluation indicators**: 任务是研究如何在保护训练数据隐私的同时，生成高质量的合成数据。评价指标使用Fréchet Inception Distance (FID) 来评估生成样本的质量，以及使用分类器在合成数据上的表现来评估数据的实用性。此外，还使用了非参数统计测试（如Mann-Whitney U测试）来评估模型对训练样本的记忆程度。
 
 
-### Paper6:
+### Paper7:
 
 **Title**: [Differentially private diffusion models generate useful synthetic images](https://arxiv.org/pdf/2302.13861) <br>
 **Journal/Conference**:  <br>
@@ -69,7 +80,7 @@
 **Task + evaluation indicators**: 任务是研究如何减少GAN在训练过程中对训练样本的记忆现象，以提高生成样本的多样性和质量。评价指标使用Fréchet Inception Distance (FID) 来评估生成样本的质量和多样性，以及使用分类器在合成数据上的表现来评估数据的实用性。此外，还使用了非参数统计测试（如Mann-Whitney U测试）来评估模型对训练样本的记忆程度。
 
 
-### Paper7:
+### Paper8:
 
 **Title**: [DCFace: Synthetic Face Generation with Dual Condition Diffusion Model](https://arxiv.org/pdf/2304.07060) <br>
 **Journal/Conference**: CVPR 2023 <br>
@@ -80,7 +91,7 @@
 **Task + evaluation indicators**: 任务是生成用于训练人脸识别模型的合成数据集，同时确保数据集中的多样性和一致性。评价指标使用人脸识别模型在多个测试数据集上（如LFW, CFP-FP, CPLFW, AgeDB和CALFW）的验证准确率来评估合成图像的性能。
 
 
-### Paper8:
+### Paper9:
 
 **Title**: [DiffProtect: Generate Adversarial Examples with Diffusion Models for Facial Privacy Protection](https://arxiv.org/pdf/2305.13625) <br>
 **Journal/Conference**:  <br>
@@ -91,7 +102,7 @@
 **Task + evaluation indicators**: 任务是在不降低视觉质量的情况下，生成能够欺骗面部识别系统的对抗性面部图像，以保护个人隐私。评价指标使用攻击成功率（ASR）来评估攻击性能，并使用Frechet Inception Distance（FID）来评估受保护面部图像的自然度。
 
 
-### Paper9:
+### Paper10:
 
   **Title**: [A RECIPE FOR WATERMARKING DIFFUSION MODELS](https://arxiv.org/pdf/2303.10137) <br>
 **Journal/Conference**:  <br>
@@ -102,7 +113,7 @@
 **Task + evaluation indicators**: 任务是研究如何在扩散模型生成的图像中嵌入水印，以便于版权保护和内容监控。评价指标使用比特准确率（Bit-Acc）来衡量从生成的图像中恢复水印的正确性。此外，还使用了峰值信噪比（PSNR）、结构相似性（SSIM）和Fréchet Inception Distance（FID）来评估生成图像的质量。论文还探讨了水印的鲁棒性，通过在模型权重或生成的图像上添加噪声来测试水印的稳定性。
 
 
-### Paper10:
+### Paper11:
 
 **Title**: [Watermarking Diffusion Model](https://arxiv.org/pdf/2305.12502) <br>
 **Journal/Conference**:  <br>
@@ -113,7 +124,7 @@
 **Task + evaluation indicators**: 任务是开发一种能够将水印嵌入到扩散模型生成的图像中的方法，以便可以追踪和验证图像的来源。评价指标使用Fréchet Inception Distance (FID)、Structural Similarity Index (SSIM)、Peak Signal-to-Noise Ratio (PSNR)、Visual Information Fidelity (VIFp) 和 Feature-SIMilarity (FSIM) 来评估生成图像的质量。使用均方误差（MSE）来衡量水印图像的质量。
 
 
-### Paper11:
+### Paper12:
 
 **Title**: [Securing Deep Generative Models with Universal Adversarial Signature](https://arxiv.org/pdf/2305.16310) <br>
 **Journal/Conference**:  <br>
@@ -124,7 +135,7 @@
 **Task + evaluation indicators**: 任务是开发一种能够将水印嵌入到扩散模型生成的图像中的方法，以便可以追踪和验证图像的来源。评价指标使用峰值信噪比（PSNR）、Fréchet Inception Distance（FID）和分类准确率（Accuracy）来评估生成图像的质量和水印的有效性。此外，还考虑了模型的泛化能力和对图像变换的鲁棒性。
 
 
-### Paper12:
+### Paper13:
 
 **Title**: [Cifake: Image classification and explainable identification of ai-generated synthetic images](https://arxiv.org/pdf/2303.14126) <br>
 **Journal/Conference**: IEEE <br>
@@ -135,7 +146,7 @@
 **Task + evaluation indicators**: 研究的主要任务是提高我们识别AI生成图像的能力。评价指标包括分类准确率、精确度、召回率和F1分数。通过这些指标，研究评估了CNN在分类真实和AI生成图像方面的性能。
 
 
-### Paper13:
+### Paper14:
 
 **Title**: [Improving Synthetically Generated Image Detection in Cross-Concept Settings](https://arxiv.org/pdf/2304.12053) <br>
 **Journal/Conference**: MAD ’23 <br>
