@@ -2,29 +2,8 @@
 
 ## Papers:
 
+
 ### Paper1:
-
-**Title**: [A full data augmentation pipeline for small object detection based on generative adversarial networks](https://www.sciencedirect.com/science/article/pii/S0031320322004782#sec0011) <br>
-**Journal/Conference**:  <br>
-**Author**: Brais Bosquet, Daniel Cores, Lorenzo Seidenari, Víctor M. Brea, Manuel Mucientes, Alberto Del Bimbo <br>
-**Model**: GAN <br>
-**Dataset**: [UAVDT](https://datasetninja.com/uavdt) Selected from 10 hours raw videos, about 80, 000 representative frames are fully annotated with bounding boxes as well as up to 14 kinds of attributes (e.g., weather condition, flying altitude, camera view, vehicle category, and occlusion) for three fundamental computer vision tasks: object detection, single object tracking, and multiple object tracking. <br>
-**Method**: <br>
-**Task+evaluation indicators**: 
-
-
-### Paper2:
-
-**Title**: [Towards Universal Fake Image Detectors that Generalize Across Generative Models](https://openaccess.thecvf.com/content/CVPR2023/html/Ojha_Towards_Universal_Fake_Image_Detectors_That_Generalize_Across_Generative_Models_CVPR_2023_paper.html) <br>
-**Journal/Conference**:  <br>
-**Author**: Utkarsh Ojha, Yuheng Li, Yong Jae Lee, *威斯康星大学麦迪逊分校* . <br>
-**Model**: 文中并没有提出一个新的生成模型，而是针对现有的生成模型（如GAN、扩散模型和自回归模型）的输出进行检测。 <br>
-**Dataset**: 文中使用了多种生成模型生成的数据集进行实验，包括ProGAN、StyleGAN、BigGAN、CycleGAN、StarGAN、GauGAN、CRN、IMLE、SAN、SITD、DeepFakes、LDM、Glide和DALL-E等。此外，还使用了LAION数据集作为真实图像的来源。 <br>
-**Method**: 作者首先分析了现有基于深度学习的方法在检测未见过的生成模型产生的假图像时的局限性。然后，提出了一种不依赖于显式训练来区分真实和假图像的特征空间的方法。具体来说，使用了预训练的视觉-语言模型（如CLIP-ViT）的特征空间，通过最近邻分类和线性探测来进行真实与假图像的分类。 <br>
-**Task + evaluation indicators**: 任务是开发一种通用的假图像检测方法，能够检测出任意图像是否为假图像。评价指标包括平均精度（Average Precision, AP）和分类准确率（Accuracy）。通过在多种未见过的生成模型上测试，评估了所提出方法的泛化能力。
-
-
-### Paper3:
 
 **Title**: [Extracting Training Data from Diffusion Models](https://www.sciencedirect.com/science/article/abs/pii/S0045790622006851) <br>
 **Journal/Conference**: USENIX Security 23 <br>
@@ -35,7 +14,7 @@
 **Task + evaluation indicators**: 任务是开发和验证一种从扩散模型中提取训练数据的方法。评价指标可能包括提取数据的准确性、完整性和实用性。
 
 
-### Paper4:
+### Paper2:
 
 **Title**: [A Reproducible Extraction of Training Images from Diffusion Models](https://arxiv.org/abs/2305.08694) <br>
 **Journal/Conference**:  <br>
@@ -46,7 +25,7 @@
 **Task + evaluation indicators**: 任务是研究如何从流行的扩散模型中提取训练图像，特别是那些在模型训练集中被复制的图像。评价指标通过构建真实样本的ground truth，并计算模型生成的图像与这些真实样本之间的匹配度（例如，使用均方误差MSE）来评估提取攻击的精度。此外，还通过与先前方法的比较来评估新方法的效率和准确性。
 
 
-### Paper5:
+### Paper3:
 
 **Title**: [Diffusion Art or Digital Forgery? Investigating Data Replication in Diffusion Models](https://arxiv.org/abs/2212.03860) <br>
 **Journal/Conference**: CVPR 2023 <br>
@@ -57,7 +36,7 @@
 **Task + evaluation indicators**: 任务是检测扩散模型生成的图像是否复制了训练集中的内容，以及复制的程度。评价指标使用mean-Average Precision (mAP)来衡量不同模型在复制检测任务上的性能。此外，通过定性和定量分析来评估模型在不同数据集上生成图像的复制行为。
 
 
-### Paper6:
+### Paper4:
 
 **Title**: [Reducing training sample memorization in gans by training with memorization rejection](https://arxiv.org/pdf/2210.12231) <br>
 **Journal/Conference**:  <br>
@@ -68,7 +47,7 @@
 **Task + evaluation indicators**: 任务是研究如何减少GAN在训练过程中对训练样本的记忆现象，以提高生成样本的多样性和质量。评价指标使用Fréchet Inception Distance (FID) 来评估生成质量，使用非参数测试分数（CT值）来评估记忆的严重程度。通过改变拒绝阈值（τ）来平衡生成质量和记忆减少。
 
 
-### Paper7:
+### Paper5:
 
 **Title**: [Differentially private diffusion models](https://arxiv.org/pdf/2210.09929) <br>
 **Journal/Conference**:  <br>
@@ -79,7 +58,7 @@
 **Task + evaluation indicators**: 任务是研究如何在保护训练数据隐私的同时，生成高质量的合成数据。评价指标使用Fréchet Inception Distance (FID) 来评估生成样本的质量，以及使用分类器在合成数据上的表现来评估数据的实用性。此外，还使用了非参数统计测试（如Mann-Whitney U测试）来评估模型对训练样本的记忆程度。
 
 
-### Paper8:
+### Paper6:
 
 **Title**: [Differentially private diffusion models generate useful synthetic images](https://arxiv.org/pdf/2302.13861) <br>
 **Journal/Conference**:  <br>
@@ -90,7 +69,7 @@
 **Task + evaluation indicators**: 任务是研究如何减少GAN在训练过程中对训练样本的记忆现象，以提高生成样本的多样性和质量。评价指标使用Fréchet Inception Distance (FID) 来评估生成样本的质量和多样性，以及使用分类器在合成数据上的表现来评估数据的实用性。此外，还使用了非参数统计测试（如Mann-Whitney U测试）来评估模型对训练样本的记忆程度。
 
 
-### Paper9:
+### Paper7:
 
 **Title**: [DCFace: Synthetic Face Generation with Dual Condition Diffusion Model](https://arxiv.org/pdf/2304.07060) <br>
 **Journal/Conference**: CVPR 2023 <br>
@@ -101,7 +80,7 @@
 **Task + evaluation indicators**: 任务是生成用于训练人脸识别模型的合成数据集，同时确保数据集中的多样性和一致性。评价指标使用人脸识别模型在多个测试数据集上（如LFW, CFP-FP, CPLFW, AgeDB和CALFW）的验证准确率来评估合成图像的性能。
 
 
-### Paper10:
+### Paper8:
 
 **Title**: [DiffProtect: Generate Adversarial Examples with Diffusion Models for Facial Privacy Protection](https://arxiv.org/pdf/2305.13625) <br>
 **Journal/Conference**:  <br>
@@ -112,7 +91,7 @@
 **Task + evaluation indicators**: 任务是在不降低视觉质量的情况下，生成能够欺骗面部识别系统的对抗性面部图像，以保护个人隐私。评价指标使用攻击成功率（ASR）来评估攻击性能，并使用Frechet Inception Distance（FID）来评估受保护面部图像的自然度。
 
 
-### Paper11:
+### Paper9:
 
   **Title**: [A RECIPE FOR WATERMARKING DIFFUSION MODELS](https://arxiv.org/pdf/2303.10137) <br>
 **Journal/Conference**:  <br>
@@ -123,7 +102,7 @@
 **Task + evaluation indicators**: 任务是研究如何在扩散模型生成的图像中嵌入水印，以便于版权保护和内容监控。评价指标使用比特准确率（Bit-Acc）来衡量从生成的图像中恢复水印的正确性。此外，还使用了峰值信噪比（PSNR）、结构相似性（SSIM）和Fréchet Inception Distance（FID）来评估生成图像的质量。论文还探讨了水印的鲁棒性，通过在模型权重或生成的图像上添加噪声来测试水印的稳定性。
 
 
-### Paper12:
+### Paper10:
 
 **Title**: [Watermarking Diffusion Model](https://arxiv.org/pdf/2305.12502) <br>
 **Journal/Conference**:  <br>
@@ -134,7 +113,7 @@
 **Task + evaluation indicators**: 任务是开发一种能够将水印嵌入到扩散模型生成的图像中的方法，以便可以追踪和验证图像的来源。评价指标使用Fréchet Inception Distance (FID)、Structural Similarity Index (SSIM)、Peak Signal-to-Noise Ratio (PSNR)、Visual Information Fidelity (VIFp) 和 Feature-SIMilarity (FSIM) 来评估生成图像的质量。使用均方误差（MSE）来衡量水印图像的质量。
 
 
-### Paper13:
+### Paper11:
 
 **Title**: [Securing Deep Generative Models with Universal Adversarial Signature](https://arxiv.org/pdf/2305.16310) <br>
 **Journal/Conference**:  <br>
@@ -145,7 +124,7 @@
 **Task + evaluation indicators**: 任务是开发一种能够将水印嵌入到扩散模型生成的图像中的方法，以便可以追踪和验证图像的来源。评价指标使用峰值信噪比（PSNR）、Fréchet Inception Distance（FID）和分类准确率（Accuracy）来评估生成图像的质量和水印的有效性。此外，还考虑了模型的泛化能力和对图像变换的鲁棒性。
 
 
-### Paper14:
+### Paper12:
 
 **Title**: [Cifake: Image classification and explainable identification of ai-generated synthetic images](https://arxiv.org/pdf/2303.14126) <br>
 **Journal/Conference**: IEEE <br>
@@ -156,7 +135,7 @@
 **Task + evaluation indicators**: 研究的主要任务是提高我们识别AI生成图像的能力。评价指标包括分类准确率、精确度、召回率和F1分数。通过这些指标，研究评估了CNN在分类真实和AI生成图像方面的性能。
 
 
-### Paper15:
+### Paper13:
 
 **Title**: [Improving Synthetically Generated Image Detection in Cross-Concept Settings](https://arxiv.org/pdf/2304.12053) <br>
 **Journal/Conference**: MAD ’23 <br>
@@ -165,7 +144,6 @@
 **Dataset**: FFHQ（人脸）、AFHQ（动物）、LSUN（场景和对象类别）。<br>
 **Method**: 提出了一种基于图像质量评分的采样策略，用于选择用于训练合成图像检测器的生成图像。使用了一种称为Quality Calculation (QC)的方法来评估生成图像的质量，并根据这些评分来选择训练数据。训练了一个基于ResNet-50的分类器，用于区分真实图像和合成图像。 <br>
 **Task + evaluation indicators**: 任务是在跨概念设置中检测合成图像，即训练检测器以识别某一概念类别的合成图像，并测试其在另一概念类别图像上的性能。评价指标主要使用了AUC（Area Under the Curve），这是一种不依赖于特定阈值的评分方法，适合评估检测器的鲁棒性和泛化能力。进行了实验，比较了使用随机采样和基于QC评分的采样策略的训练检测器的性能。
-
 
 
 
