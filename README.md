@@ -82,29 +82,51 @@
 
 ### Paper7:
 
+**Title**: [Forget-Me-Not: Learning to Forget in Text-to-Image Diffusion Models]( <br>
+**Journal/Conference**: Gong Zhang, Kai Wang, Xingqian Xu, Zhangyang Wang, Humphrey Shi <br>
+**Author**: CVPR 2024 <br>
+**Model**: Text-to-Image Diffusion Models <br>
+**Dataset**: LAION, COYO, CC12M. <br>
+**Method**: 提出 Forget-Me-Not 方法，用于在预训练的文本到图像模型中选择性地忘记特定概念；引入注意力重定向损失（Attention Re-steering loss）和视觉去噪损失（Visual Denoising loss）；使用概念反转（Concept Inversion）技术来提取图像中的文本嵌入。<br>
+**Task + evaluation indicators**: 任务是实现在文本到图像的生成模型中有选择性地忘记特定概念，如身份、对象、风格等。评价指标为CLIP得分：评估生成图像与文本提示之间的一致性；记忆得分（Memorization Score）：评估模型对探测数据集的知识变化。 实验包括定性比较、定量分析、概念校正和去除 NSFW 内容的能力评估。对比其他方法如 ESD 和 ACTD，展示了在多概念遗忘和概念校正方面的优势。
+
+
+### Paper8:
+
 **Title**: [DCFace: Synthetic Face Generation with Dual Condition Diffusion Model](https://arxiv.org/pdf/2304.07060) <br>
 **Journal/Conference**: CVPR 2023 <br>
 **Author**: Minchul Kim, Feng Liu, Anil Jain, Xiaoming Liu. <br>
-**Model**: DCFace <br>
+**Model**: DCFace(基于Diffusion models) <br>
 **Dataset**: CASIA-WebFace. 数据集包含多个人脸图像，用于训练和评估人脸识别模型。<br>
 **Method**: DCFace通过两个阶段的数据生成范式工作：条件采样阶段和混合阶段。在条件采样阶段，使用身份图像生成器Gid生成高质量的身份图像(Xid)，并从风格库中选择一个任意的风格图像(Xsty)。在混合阶段，使用双条件生成器Gmix结合这两种条件生成图像，预测具有Xid身份和Xsty风格的图像。 <br>
 **Task + evaluation indicators**: 任务是生成用于训练人脸识别模型的合成数据集，同时确保数据集中的多样性和一致性。评价指标使用人脸识别模型在多个测试数据集上（如LFW, CFP-FP, CPLFW, AgeDB和CALFW）的验证准确率来评估合成图像的性能。
 
 
-### Paper8:
+### Paper9:
 
 **Title**: [DiffProtect: Generate Adversarial Examples with Diffusion Models for Facial Privacy Protection](https://arxiv.org/pdf/2305.13625) <br>
 **Journal/Conference**:  <br>
 **Author**: Jiang Liu, Chun Pong Lau, Rama Chellappa. <br>
-**Model**: Diffusion Models, Diffusion Autoencoder <br>
+**Model**: DiffProtect(基于Diffusion Models), Diffusion Autoencoder(扩散自编码器) <br>
 **Dataset**: CelebA-HQ, FFHQ. 常用的高质量面部图像数据集。<br>
 **Method**: DiffProtect首先将输入面部图像编码为高级语义代码和低级噪声代码。然后，通过迭代优化语义代码来生成能够欺骗面部识别模型的受保护图像。引入了面部语义正则化模块，以鼓励受保护图像和输入图像具有相似的面部语义，以更好地保留视觉身份。提出了一种攻击加速策略，通过仅运行一步生成过程来计算每次攻击迭代的重构图像的近似版本，从而显著减少攻击时间。 <br>
 **Task + evaluation indicators**: 任务是在不降低视觉质量的情况下，生成能够欺骗面部识别系统的对抗性面部图像，以保护个人隐私。评价指标使用攻击成功率（ASR）来评估攻击性能，并使用Frechet Inception Distance（FID）来评估受保护面部图像的自然度。
 
 
-### Paper9:
+### Paper10:
 
-  **Title**: [A RECIPE FOR WATERMARKING DIFFUSION MODELS](https://arxiv.org/pdf/2303.10137) <br>
+**Title**: 3D-Aware Adversarial Makeup Generation for Facial Privacy Protection <br>
+**Journal/Conference**:  <br>
+**Author**: Yueming Lyu, Yue Jiang, Ziwen He, Bo Peng, Yunfan Liu, Jing Dong <br>
+**Model**: 3D-Aware Adversarial Makeup Generation GAN（3DAM-GAN,基于GAN） <br>
+**Dataset**: Makeup Transfer (MT) 作为训练集，该数据集包含1,115张无妆容图像和2,719张具有多样妆容风格的图像；测试集包括LADN数据集和CelebA-HQ数据集，用于评估方法的有效性和鲁棒性。<br>
+**Method**: 3DAM-GAN通过在UV空间中转移参考面部图像的妆容样式到源图像，从而在保持面部身份的同时，生成具有自然妆容的对抗性面部图像；引入了Makeup Adjustment Module (MAM) 和 Makeup Transfer Module (MTM) 来提高生成图像的质量；提出了一种新的UV妆容损失函数，利用人脸在UV空间的对称性，提供更精确和鲁棒的妆容监督；引入了针对不同面部识别模型的集合训练策略，以提高模型在黑盒设置下的迁移能力。<br>
+**Task + evaluation indicators**: 任务是保护面部图像免受未经授权的面部识别系统的识别。评价指标为攻击成功率（Attack Success Rate, ASR）：衡量生成的对抗性图像在面部识别系统中的成功欺骗率；Frechet Inception Distance (FID)：衡量生成图像与真实图像分布之间的相似度；结构相似性指数（Structural Similarity Index Measure, SSIM）和峰值信噪比（Peak Signal-to-Noise Ratio, PSNR）：衡量生成图像的质量。 实验包括与现有方法的比较、不同攻击方法的迁移能力评估、以及在模拟现实场景下的性能测试。
+
+
+### Paper11:
+
+  **Title**: [A Recipe for Watermarking Diffusion Models](https://arxiv.org/pdf/2303.10137) <br>
 **Journal/Conference**:  <br>
 **Author**: Yunqing Zhao, Tianyu Pang, Chao Du, Xiao Yang, Ngai-Man Cheung, Min Lin. <br>
 **Model**: Diffusion Models <br>
@@ -113,7 +135,29 @@
 **Task + evaluation indicators**: 任务是研究如何在扩散模型生成的图像中嵌入水印，以便于版权保护和内容监控。评价指标使用比特准确率（Bit-Acc）来衡量从生成的图像中恢复水印的正确性。此外，还使用了峰值信噪比（PSNR）、结构相似性（SSIM）和Fréchet Inception Distance（FID）来评估生成图像的质量。论文还探讨了水印的鲁棒性，通过在模型权重或生成的图像上添加噪声来测试水印的稳定性。
 
 
-### Paper10:
+### Paper12:
+
+**Title**: [The Stable Signature: Rooting Watermarks in Latent Diffusion Models](https://openaccess.thecvf.com/content/ICCV2023/papers/Fernandez_The_Stable_Signature_Rooting_Watermarks_in_Latent_Diffusion_Models_ICCV_2023_paper.pdf) <br>
+**Journal/Conference**: ICCV <br>
+**Author**: Pierre Fernandez，Guillaume Couairon，Hervé Jégou，Matthias Douze，Teddy Furon <br>
+**Model**: Diffusion Models, Latent Diffusion Models <br>
+**Dataset**: ImageNet(包括了超过100万张高分辨率、多样化的图像)，用于训练潜扩散模型，并用于评估所提出方法的有效性。 <br>
+**Method**: 该论文提出了一种名为“Stable Signature”的方法，用于在潜扩散模型生成的图像中嵌入水印；方法涉及在VAE的解码器中嵌入水印，并在训练过程中优化，以便生成的图像包含隐形水印。<br>
+**Task + evaluation indicators**: 主要任务是是将水印嵌入到潜扩散模型中，以便在图像生成时能够检测到这些水印，用于版权保护和内容验证。评价指标使用了不可见水印的鲁棒性（Robustness to common image manipulations）；还使用了图像质量评价标准，如Inception Score (IS) 和Fréchet Inception Distance (FID)；通过视觉和自动检测器的检测成功率来评估水印的可检测性。
+
+
+### Paper13:
+
+**Title**: [Intellectual Property Protection of Diffusion Models via the Watermark Diffusion Process](https://arxiv.org/pdf/2306.03436) <br>
+**Journal/Conference**:  <br>
+**Author**: Sen Peng, Yufei Chen, Cong Wang, Xiaohua Jia. <br>
+**Model**: 文章提出了一种新的水印方案，称为水印扩散过程（Watermark Diffusion Process, WDP），用于保护扩散模型（Diffusion Models）的知识产权。 <br>
+**Dataset**: CIFAR-10(常用的图像识别数据集，包含10个类别，每个类别6000张32x32的彩色图像), CelebA(大规模的人脸属性数据集，包含超过20万张人脸图像及其40种属性的注释). <br>
+**Method**: 该方法通过在训练过程中同时学习水印扩散过程（WDP）和标准扩散过程来嵌入水印数据；WDP允许模型在不损害原始任务生成质量的前提下，生成具有独特数据分布的样本作为水印；提供了WDP训练和抽样的详细理论分析，并与修改的高斯扩散过程通过相同的反向噪声联系起来。<br>
+**Task + evaluation indicators**: 任务是开发一种完整的水印框架，用于保护扩散模型的知识产权，包括水印嵌入、提取和验证。评价指标分为模型保真度：通过Inception Score (IS)和Fréchet Inception Distance (FID)评估生成模型的质量，以确保水印过程没有显著影响模型性能；水印保真度：通过比较提取的水印和原始水印的相似性，以及使用假设检验验证水印的存在；水印鲁棒性：评估水印在面对模型压缩、权重扰动和模型微调等攻击时的鲁棒性。
+
+
+### Paper14:
 
 **Title**: [Watermarking Diffusion Model](https://arxiv.org/pdf/2305.12502) <br>
 **Journal/Conference**:  <br>
@@ -124,7 +168,7 @@
 **Task + evaluation indicators**: 任务是开发一种能够将水印嵌入到扩散模型生成的图像中的方法，以便可以追踪和验证图像的来源。评价指标使用Fréchet Inception Distance (FID)、Structural Similarity Index (SSIM)、Peak Signal-to-Noise Ratio (PSNR)、Visual Information Fidelity (VIFp) 和 Feature-SIMilarity (FSIM) 来评估生成图像的质量。使用均方误差（MSE）来衡量水印图像的质量。
 
 
-### Paper11:
+### Paper15:
 
 **Title**: [Securing Deep Generative Models with Universal Adversarial Signature](https://arxiv.org/pdf/2305.16310) <br>
 **Journal/Conference**:  <br>
@@ -135,7 +179,18 @@
 **Task + evaluation indicators**: 任务是开发一种能够将水印嵌入到扩散模型生成的图像中的方法，以便可以追踪和验证图像的来源。评价指标使用峰值信噪比（PSNR）、Fréchet Inception Distance（FID）和分类准确率（Accuracy）来评估生成图像的质量和水印的有效性。此外，还考虑了模型的泛化能力和对图像变换的鲁棒性。
 
 
-### Paper12:
+### Paper16:
+
+**Title**: [DiffusionShield: A Watermark for Data Copyright Protection against Generative Diffusion Models](https://arxiv.org/pdf/2306.04642) <br>
+**Journal/Conference**:  <br>
+**Author**: Yingqian Cui, Jie Ren, Han Xu, Pengfei He, Hui Liu, Lichao Sun, Yue Xing, Jilijang Tang. <br>
+**Model**: 文章提出了一种名为DiffusionShield的新方法，用于保护图像版权免受生成扩散模型（Generative Diffusion Models, GDMs）的侵权。 <br>
+**Dataset**: CIFAR-10, CIFAR-100, STL-10, ImageNet-20. <br>
+**Method**: DiffusionShield方法包括两个阶段：保护阶段和审计阶段。在保护阶段，版权所有者将版权信息编码成水印并添加到图像中，形成受保护的数据；在审计阶段，版权所有者检查可疑图像是否侵犯了其数据的版权DiffusionShield通过块状策略增强水印的“模式一致性”，并通过联合优化方法提高水印检测性能。<br>
+**Task + evaluation indicators**: 任务是开发和评估一种用于保护图像版权免受生成扩散模型侵权的水印方法。评价指标分别为扰动预算（Perturbation Budget）：使用LPIPS、l2和l∞差异来衡量原始和水印图像之间的视觉差异；检测准确率（Detection Accuracy）：应用位准确率来评估编码在生成图像中的版权信息的正确性；消息长度（Message Length）：反映编码能力的容量，即嵌入水印中的消息长度。
+
+
+### Paper17:
 
 **Title**: [Cifake: Image classification and explainable identification of ai-generated synthetic images](https://arxiv.org/pdf/2303.14126) <br>
 **Journal/Conference**: IEEE <br>
@@ -146,10 +201,32 @@
 **Task + evaluation indicators**: 研究的主要任务是提高我们识别AI生成图像的能力。评价指标包括分类准确率、精确度、召回率和F1分数。通过这些指标，研究评估了CNN在分类真实和AI生成图像方面的性能。
 
 
-### Paper13:
+### Paper18:
+
+**Title**: [On the Detection of Synthetic Images Generated by Diffusion Models](https://arxiv.org/pdf/2211.00680) <br>
+**Journal/Conference**: ICASSP <br>
+**Author**: R Corvi, D Cozzolino, G Zingarini, G Poggi, K Nagano, L Verdoliva <br>
+**Model**: 论文主要研究的是扩散模型（Diffusion Models，DM）生成的合成图像的检测问题，而非提出一个新的生成模型。 <br>
+**Dataset**: 使用了多个最新的生成模型生成的合成图像，包括但不限于ProGAN、StyleGAN2、StyleGAN3、BigGAN、EG3D、Taming Transformer、DALL·E Mini、DALL·E 2、GLIDE、Latent Diffusion、Stable Diffusion和ADM。真实图像数据集包括COCO、ImageNet和UCID。<br>
+**Method**: 论文首先分析了扩散模型留下的法医痕迹，然后研究了当前针对GAN生成图像开发的检测器在这些新型合成图像上的表现，尤其是在社交网络环境中涉及图像压缩和调整大小的挑战性场景。<br>
+**Task + evaluation indicators**: 任务：检测由扩散模型生成的合成图像。评价指标：使用接收者操作特征曲线下面积（AUC）和在固定阈值为0.5时的准确度来评估检测器的性能。
+
+
+### Paper19:
+
+**Title**: [DIRE for Diffusion-Generated Image Detection](https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_DIRE_for_Diffusion-Generated_Image_Detection_ICCV_2023_paper.pdf) <br>
+**Journal/Conference**: ICCV 2023 <br>
+**Author**: Zhendong Wang, Jianmin Bao, Wengang Zhou, Weilun Wang, Hezhen Hu, Hong Chen, Houqiang Li. <br>
+**Model**: 论文提出了一种新的图像表示方法，称为DIffusion Reconstruction Error (DIRE)，用于检测由扩散模型 (Diffusion Models) 生成的图像。 <br>
+**Dataset**: 作者建立了一个名为DiffusionForensics的数据集，用于评估检测扩散生成图像的性能，数据集包括由各种扩散模型生成的图像，包括无条件、条件和文本到图像的扩散生成模型。数据集涵盖了LSUN-Bedroom、ImageNet和CelebA-HQ三个域的图像。<br>
+**Method**: DIRE方法基于预训练的扩散模型对输入图像进行重建，并计算输入图像与其重建对应物之间的误差。扩散生成的图像可以近似地由扩散模型重建，而真实图像则不能。通过训练一个简单的二元分类器基于DIRE可以轻松检测扩散生成的图像。<br>
+**Task + evaluation indicators**: 任务是开发一种通用的检测器，用于区分真实图像和由扩散模型生成的图像。评价指标：使用准确率（Accuracy）和平均精度（Average Precision，AP）来评估检测器的性能。 实验包括在DiffusionForensics数据集上的广泛实验，以证明DIRE表示在检测扩散生成图像方面的优越性。
+
+
+### Paper20:
 
 **Title**: [Improving Synthetically Generated Image Detection in Cross-Concept Settings](https://arxiv.org/pdf/2304.12053) <br>
-**Journal/Conference**: MAD ’23 <br>
+**Journal/Conference**: 2nd ACM International Workshop on Multimedia AI against Disinformation (MAD ’23) <br>
 **Author**: P. Dogoulis, G. Kordopatis-Zilos, I. Kompatsiaris, and S. Papadopoulos. <br>
 **Model**: StyleGAN2, Latent Diffusion. <br>
 **Dataset**: FFHQ（人脸）、AFHQ（动物）、LSUN（场景和对象类别）。<br>
@@ -157,7 +234,18 @@
 **Task + evaluation indicators**: 任务是在跨概念设置中检测合成图像，即训练检测器以识别某一概念类别的合成图像，并测试其在另一概念类别图像上的性能。评价指标主要使用了AUC（Area Under the Curve），这是一种不依赖于特定阈值的评分方法，适合评估检测器的鲁棒性和泛化能力。进行了实验，比较了使用随机采样和基于QC评分的采样策略的训练检测器的性能。
 
 
-### Paper2:
+### Paper21:
+
+**Title**:  <br>
+**Journal/Conference**: ICCV 2023 <br>
+**Author**: Peter Lorenz, Ricard L. Durall, Janis Keuper, Janis Keuper. <br>
+**Model**: 该论文并未提出新的生成模型，而是提出了一种检测方法，用于检测和识别由深度扩散模型（如DDPMs）生成的图像。 <br>
+**Dataset**: 使用了多个数据集，包括公开可用的CiFake、ArtiFact、DiffusionDB、LAION-5B和SAC数据集，以及作者从不同预训练模型生成的新数据集。数据集包含多种图像尺寸（从32×32到768×768像素）和不同领域的图像，如面部、动物、地点等。 <br>
+**Method**: 提出了一种基于局部内在维度（multiLID）的方法，用于自动检测合成图像并识别相应的生成网络。方法包括将输入图像传递给未训练的ResNet，提取特征映射表示，计算multiLID，然后运行分类器以确定输入图像的性质。<br>
+**Task + evaluation indicators**: 任务为检测合成图像与真实图像的区分以及识别合成图像是由哪个特定的生成模型生成的。评价指标：使用准确率（Accuracy）作为评价指标，并通过一系列实验验证了所提方法的有效性，包括在标准化数据集（如LSUN-Bedroom）和最新数据集上的性能评估，以及对multiLID方法的彻底研究。
+
+
+### Paper22:
 
 **Title**:  <br>
 **Journal/Conference**:  <br>
@@ -167,6 +255,16 @@
 **Method**: 。<br>
 **Task + evaluation indicators**: 
 
+
+### Paper23:
+
+**Title**:  <br>
+**Journal/Conference**:  <br>
+**Author**:  <br>
+**Model**:  <br>
+**Dataset**: <br>
+**Method**: 。<br>
+**Task + evaluation indicators**: 
 
 
 
