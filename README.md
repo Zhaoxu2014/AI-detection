@@ -82,7 +82,7 @@
 
 ### Paper7:
 
-**Title**: [Forget-Me-Not: Learning to Forget in Text-to-Image Diffusion Models]( <br>
+**Title**: [Forget-Me-Not: Learning to Forget in Text-to-Image Diffusion Models](https://openaccess.thecvf.com/content/CVPR2024W/MMFM/papers/Zhang_Forget-Me-Not_Learning_to_Forget_in_Text-to-Image_Diffusion_Models_CVPRW_2024_paper.pdf) <br>
 **Journal/Conference**: Gong Zhang, Kai Wang, Xingqian Xu, Zhangyang Wang, Humphrey Shi <br>
 **Author**: CVPR 2024 <br>
 **Model**: Text-to-Image Diffusion Models <br>
@@ -115,7 +115,7 @@
 
 ### Paper10:
 
-**Title**: 3D-Aware Adversarial Makeup Generation for Facial Privacy Protection <br>
+**Title**: [3D-Aware Adversarial Makeup Generation for Facial Privacy Protection](https://arxiv.org/pdf/2306.14640) <br>
 **Journal/Conference**:  <br>
 **Author**: Yueming Lyu, Yue Jiang, Ziwen He, Bo Peng, Yunfan Liu, Jing Dong <br>
 **Model**: 3D-Aware Adversarial Makeup Generation GAN（3DAM-GAN,基于GAN） <br>
