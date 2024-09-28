@@ -10,7 +10,7 @@
 **Author**: Nicholas Carlini, Google; Jamie Hayes, DeepMind; Milad Nasr and Matthew Jagielski, Google; Vikash Sehwag, Princeton University; Florian Tramèr, ETH Zurich; Borja Balle, DeepMind; Daphne Ippolito, Google; Eric Wallace, UC Berkeley. <br>
 **Model**: Diffusion Models <br>
 **Dataset**: LAION, CIFAR-10. LAION是一个大规模的数据集，用于训练扩散模型；CIFAR-10是一个常用的小规模图像分类数据集，包含10个类别，共60000张32x32的彩色图像。<br>
-**Method**: 研究者们展示了扩散模型能够记住训练数据中的个别图像，并在生成时重新发出这些图像。他们提出了一种生成和过滤流程，从最先进的模型中提取了数千个训练样本。他们还训练了数百个不同设置的扩散模型，分析了不同的建模和数据决策如何影响隐私。<br>
+**Method**: 展示了扩散模型能够记住训练数据中的个别图像，并在生成时重新发出这些图像。提出了一种生成和过滤流程，从最先进的模型中提取了数千个训练样本。训练了数百个不同设置的扩散模型，分析了不同的建模和数据决策如何影响隐私。<br>
 **Task + evaluation indicators**: 任务是从预训练的大规模扩散模型中提取训练数据，以评估这些模型对训练数据的记忆程度。评价指标可能包括提取数据的准确性、完整性和实用性。<br>
 
 
